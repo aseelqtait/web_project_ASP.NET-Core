@@ -1,0 +1,25 @@
+﻿@model Book
+@{
+    ViewBag.Title = "Delete Book";
+}
+<style>
+    h2,h3 {
+         color: rgb(116, 65, 93);
+    }
+    .blue {
+      background-color: #E4D4C8	;
+     color:  rgb(116, 65, 93);
+     border: 5px solid #39918C	;
+     border-radius: 10px;
+    }
+</style>
+
+<h2>Confirm Deletion</h2>
+<h3>@Model.BookName </h3>
+
+<form asp-action="Delete" method="post" >
+    <input type="hidden" asp-for="BookId" />
+
+    <button type="submit" class="btn btn-primary blue">Delete</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary blue">back home </a>
+</form>

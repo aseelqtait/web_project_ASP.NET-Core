@@ -1,0 +1,58 @@
+﻿@model Book
+@{
+    ViewBag.Title = " edit Book ";
+}
+<style>
+    h1{
+         color: rgb(116, 65, 93);
+    }
+     .blue {
+      background-color: #E4D4C8	;
+     color:  rgb(116, 65, 93);
+     border: 5px solid #39918C	;
+     border-radius: 10px;
+    }
+    .form-group{
+      color: rgb(116, 65, 93);
+    }
+</style>
+
+<h1> Edit Book</h1>
+
+<form asp-action="editBook" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+         
+        <input type="hidden" asp-for="BookId" class="form-control" />
+        <span asp-validation-for="BookId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BookName"> Book Name</label>
+        <input asp-for="BookName" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price">Price</label>
+        <input asp-for="Price" class="form-control">
+    </div>
+     <div class="form-group">
+                <label asp-for="Type"></label>
+                <select asp-for="Type">
+                    <option value="B1">b1</option>
+                    <option value="B2">b2</option>
+                    <option value="B3">b3</option>
+                </select>
+     </div>
+   
+   
+
+
+   
+
+    <input type="hidden" asp-for="BookId" />
+
+    <button type="submit" class="btn btn-primary blue">edit</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary blue">back home </a>
+</form>
+

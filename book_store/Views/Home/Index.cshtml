@@ -1,0 +1,111 @@
+﻿
+
+@model List<Book>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <head>
+        <style>
+            h1{
+                color: rgb(116, 65, 93);
+            }
+               .blue {
+                     background-color: #E4D4C8	;
+                     color:  rgb(116, 65, 93);
+                     border: 5px solid #39918C	;
+                     border-radius: 10px;
+    }
+            input[type=text] {
+                width: 90%;
+                box-sizing: border-box;
+                border: 2px solid #39918C;
+                border-top : hidden;
+                border-right:hidden;
+                border-left:hidden;
+                border-radius: 4px;
+                font-size: 16px;
+                background-color: white;
+                background-position: 10px 10px;
+                background-repeat: no-repeat;
+                padding: 12px 20px 12px;
+            }
+            button {
+                padding: 12px;
+                box-sizing: border-box;
+                background-color: #E4D4C8	;
+                color: rgb(116, 65, 93);
+                font-size: 16px;
+                border-radius: 10px;
+                border: 5px solid   #39918C
+            }
+            table{
+                width:100%;
+            }
+            #main {
+                padding: 20px;
+                margin: 10px;
+                text-align: center;
+                border: 5px solid #39918C;
+                background-color:#E4D4C8; 
+                color: rgb(116, 65, 93);
+                box-sizing: border-box;
+                border-radius: 20px;
+            }
+                #main a {
+                    border: 1px solid #533440; 
+                    color: rgb(41,0,29);
+                    padding: 2px;
+                    margin: 2px;
+                    text-decoration: none;
+                    background-color:#39918C;
+                    border-radius: 5px;
+                }
+                
+
+        </style>
+    </head>
+    <body>
+        <h1> Book Detalis </h1>
+        
+      
+        <br />
+        <br />
+
+           <div>
+            <form asp-action="search" method="get">
+               
+                <input type="text" name="k" placeholder="Search..."/>
+                <button type="submit">Search</button>
+
+            </form>
+        </div>
+        <br />
+        <br />
+
+
+        
+                @foreach (var c in Model)
+            {
+                <div id="main">
+                    <h2>@c.BookName</h2>
+                    <hr />
+                    <span>
+                        <a asp-controller="Book1" asp-action="BookDetail" asp-route-id="@c.BookId"> view details </a>
+                        &nbsp;&nbsp;
+                        <a asp-controller="Book1" asp-action="deleteBook"
+                           asp-route-id="@c.BookId">Delete</a>
+                        &nbsp;&nbsp;
+                        <a asp-controller="Book1" asp-action="editBook"
+                           asp-route-id="@c.BookId">Edit   </a>
+                    </span>
+                </div>
+            }
+               
+
+        <br />
+        <br />
+        <a asp-action="newBook" asp-controller="Book1" class="btn btn-primary blue ">New Book</a>
+        <br />
+        <br />
+    </body>

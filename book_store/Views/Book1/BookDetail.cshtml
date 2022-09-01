@@ -1,0 +1,134 @@
+﻿@model Book
+
+@{
+    ViewBag.Title = "Book  details";
+    
+}
+
+<style>
+    :root{
+    --main-color:rgb(213, 234, 189);
+--text-color:rgb(47, 40, 31);
+--bg-color:rgb(255, 255, 255);
+
+}
+
+
+    .box2 .bx{
+      display: block;
+      color: var(--main-color);
+      margin: 0.9rem;
+  }
+   .box2 .btn{
+   display: block;
+   padding: 5px 5px;
+   align-content: center; 
+      max-width: 240px;
+  }
+  .box2 .details{
+    display: flex;
+   
+    align-items: center; 
+      bottom: 1.8rem;
+      right: 1rem;
+      font-size: .8rem;
+   }
+    .box2{
+    
+    display: block;
+    float: left;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    width: 20%;
+    padding: 5px;
+    top: 2rem;
+    background-color: #E4D4C8;
+    color: rgb(116, 65, 93);
+  
+
+}
+ 
+.box2 img{
+
+    width: 200px;
+    height: 200px;
+    border-radius:0.2rem;
+    box-shadow: 10px 10px 20px rgb(15 54 55/10%);
+    
+}
+
+.box2 img:hover{
+  transition: 0.5s; 
+  transform: scale(1.2);
+
+}
+.blue {
+      background-color: #E4D4C8	;
+     color:  rgb(116, 65, 93);
+     border: 5px solid #39918C	;
+     border-radius: 10px;
+    }
+
+.box2 h2{
+    position:relative;
+    bottom: 5rem;
+    left: 10rem;
+    right: 5rem;
+    font-weight: 400;
+    font-size: 1.2rem;
+    background: rgb(212, 235, 238);
+    padding: 5px;
+    border-radius: 0.1rem;
+    
+}
+.box2:hover h2{
+    color:rgb(255, 255, 255); 
+    background:	#DDA0DD;
+  
+  }
+  .n{
+      display:block;
+  }
+ 
+h1{
+    color: rgb(116, 65, 93);
+}
+</style>
+
+<h1> Book Details </h1>
+
+
+
+
+<body>
+<br />
+<div class="box2">
+            <h3>@Model.BookName</h3>
+            <br />
+            <img src="@Url.Content("~/lib/"+Model.BookId+".jpg")" alt="">
+            <br />
+            <br />
+            <span>@Model.Price $</span>
+            
+
+<br />
+
+<br />
+  
+
+ <a asp-controller="Home" asp-action="Index"
+       class="btn btn-primary blue">Home</a>
+</div>
+
+   </body>
+
+   
+
+
+    
+   
+
+
+
+
